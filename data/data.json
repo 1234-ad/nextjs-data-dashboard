@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "John Smith",
+    "email": "john.smith@example.com",
+    "department": "Engineering",
+    "position": "Senior Developer",
+    "salary": 95000,
+    "joinDate": "2022-03-15",
+    "status": "Active",
+    "location": "New York",
+    "skills": ["JavaScript", "React", "Node.js"]
+  },
+  {
+    "id": 2,
+    "name": "Sarah Johnson",
+    "email": "sarah.johnson@example.com",
+    "department": "Marketing",
+    "position": "Marketing Manager",
+    "salary": 78000,
+    "joinDate": "2021-08-22",
+    "status": "Active",
+    "location": "Los Angeles",
+    "skills": ["Digital Marketing", "SEO", "Analytics"]
+  },
+  {
+    "id": 3,
+    "name": "Michael Brown",
+    "email": "michael.brown@example.com",
+    "department": "Sales",
+    "position": "Sales Representative",
+    "salary": 65000,
+    "joinDate": "2023-01-10",
+    "status": "Active",
+    "location": "Chicago",
+    "skills": ["Sales", "CRM", "Communication"]
+  },
+  {
+    "id": 4,
+    "name": "Emily Davis",
+    "email": "emily.davis@example.com",
+    "department": "HR",
+    "position": "HR Specialist",
+    "salary": 58000,
+    "joinDate": "2022-11-05",
+    "status": "Active",
+    "location": "Houston",
+    "skills": ["Recruitment", "Employee Relations", "Training"]
+  },
+  {
+    "id": 5,
+    "name": "David Wilson",
+    "email": "david.wilson@example.com",
+    "department": "Engineering",
+    "position": "Frontend Developer",
+    "salary": 82000,
+    "joinDate": "2023-02-28",
+    "status": "Active",
+    "location": "San Francisco",
+    "skills": ["React", "TypeScript", "CSS"]
+  }
+]
