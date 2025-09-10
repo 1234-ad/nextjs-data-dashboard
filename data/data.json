@@ -1,62 +1,12 @@
 [
-  {
-    "id": 1,
-    "name": "John Smith",
-    "email": "john.smith@example.com",
-    "department": "Engineering",
-    "position": "Senior Developer",
-    "salary": 95000,
-    "joinDate": "2022-03-15",
-    "status": "Active",
-    "location": "New York",
-    "skills": ["JavaScript", "React", "Node.js"]
-  },
-  {
-    "id": 2,
-    "name": "Sarah Johnson",
-    "email": "sarah.johnson@example.com",
-    "department": "Marketing",
-    "position": "Marketing Manager",
-    "salary": 78000,
-    "joinDate": "2021-08-22",
-    "status": "Active",
-    "location": "Los Angeles",
-    "skills": ["Digital Marketing", "SEO", "Analytics"]
-  },
-  {
-    "id": 3,
-    "name": "Michael Brown",
-    "email": "michael.brown@example.com",
-    "department": "Sales",
-    "position": "Sales Representative",
-    "salary": 65000,
-    "joinDate": "2023-01-10",
-    "status": "Active",
-    "location": "Chicago",
-    "skills": ["Sales", "CRM", "Communication"]
-  },
-  {
-    "id": 4,
-    "name": "Emily Davis",
-    "email": "emily.davis@example.com",
-    "department": "HR",
-    "position": "HR Specialist",
-    "salary": 58000,
-    "joinDate": "2022-11-05",
-    "status": "Active",
-    "location": "Houston",
-    "skills": ["Recruitment", "Employee Relations", "Training"]
-  },
-  {
-    "id": 5,
-    "name": "David Wilson",
-    "email": "david.wilson@example.com",
-    "department": "Engineering",
-    "position": "Frontend Developer",
-    "salary": 82000,
-    "joinDate": "2023-02-28",
-    "status": "Active",
-    "location": "San Francisco",
-    "skills": ["React", "TypeScript", "CSS"]
-  }
+  {"id": 1, "name": "John Smith", "email": "john.smith@example.com", "department": "Engineering", "position": "Senior Developer", "salary": 95000, "joinDate": "2022-03-15", "status": "Active", "location": "New York", "skills": ["JavaScript", "React", "Node.js"]},
+  {"id": 2, "name": "Sarah Johnson", "email": "sarah.johnson@example.com", "department": "Marketing", "position": "Marketing Manager", "salary": 78000, "joinDate": "2021-08-22", "status": "Active", "location": "Los Angeles", "skills": ["Digital Marketing", "SEO", "Analytics"]},
+  {"id": 3, "name": "Michael Brown", "email": "michael.brown@example.com", "department": "Sales", "position": "Sales Representative", "salary": 65000, "joinDate": "2023-01-10", "status": "Active", "location": "Chicago", "skills": ["Sales", "CRM", "Communication"]},
+  {"id": 4, "name": "Emily Davis", "email": "emily.davis@example.com", "department": "HR", "position": "HR Specialist", "salary": 58000, "joinDate": "2022-11-05", "status": "Active", "location": "Houston", "skills": ["Recruitment", "Employee Relations", "Training"]},
+  {"id": 5, "name": "David Wilson", "email": "david.wilson@example.com", "department": "Engineering", "position": "Frontend Developer", "salary": 82000, "joinDate": "2023-02-28", "status": "Active", "location": "San Francisco", "skills": ["React", "TypeScript", "CSS"]},
+  {"id": 6, "name": "Lisa Anderson", "email": "lisa.anderson@example.com", "department": "Finance", "position": "Financial Analyst", "salary": 72000, "joinDate": "2022-07-12", "status": "Active", "location": "Boston", "skills": ["Excel", "Financial Modeling", "Analysis"]},
+  {"id": 7, "name": "Robert Taylor", "email": "robert.taylor@example.com", "department": "Operations", "position": "Operations Manager", "salary": 88000, "joinDate": "2021-05-18", "status": "Active", "location": "Seattle", "skills": ["Project Management", "Process Improvement", "Leadership"]},
+  {"id": 8, "name": "Jennifer Martinez", "email": "jennifer.martinez@example.com", "department": "Design", "position": "UX Designer", "salary": 75000, "joinDate": "2022-09-03", "status": "Active", "location": "Austin", "skills": ["Figma", "User Research", "Prototyping"]},
+  {"id": 9, "name": "Christopher Lee", "email": "christopher.lee@example.com", "department": "Engineering", "position": "Backend Developer", "salary": 90000, "joinDate": "2021-12-01", "status": "Active", "location": "Denver", "skills": ["Python", "Django", "PostgreSQL"]},
+  {"id": 10, "name": "Amanda White", "email": "amanda.white@example.com", "department": "Customer Success", "position": "Customer Success Manager", "salary": 68000, "joinDate": "2023-04-20", "status": "Active", "location": "Miami", "skills": ["Customer Relations", "Account Management", "Support"]}
 ]
