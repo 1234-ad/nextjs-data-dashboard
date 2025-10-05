@@ -2,20 +2,58 @@
 
 import { useState } from 'react';
 import { Download, FileText, FileSpreadsheet, Loader2 } from 'lucide-react';
-import { Employee } from '@/types';
+import { Employee, SearchParams } from '@/types';
 import { exportEmployees, getExportSummary } from '@/lib/exportUtils';
 
 interface ExportButtonProps {
   employees: Employee[];
+  searchParams?: SearchParams;
   disabled?: boolean;
   className?: string;
 }
 
-export function ExportButton({ employees, disabled = false, className = '' }: ExportButtonProps) {
+export function ExportButton({ 
+  employees, 
+  searchParams = {}, 
+  disabled = false, 
+  className = '' 
+}: ExportButtonProps) {
   const [isExporting, setIsExporting] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
   const exportSummary = getExportSummary(employees);
+
+  const fetchAllFilteredData = async (): Promise<Employee[]> => {
+    try {
+      const params = new URLSearchParams();
+      
+      // Add search parameters to API call
+      if (searchParams.query) params.append('query', searchParams.query);
+      if (searchParams.department) params.append('department', searchParams.department);
+      if (searchParams.status) params.append('status', searchParams.status);
+      if (searchParams.location) params.append('location', searchParams.location);
+      if (searchParams.sortBy) params.append('sortBy', searchParams.sortBy);
+      if (searchParams.sortOrder) params.append('sortOrder', searchParams.sortOrder);
+
+      const response = await fetch(`/api/employees/export?${params.toString()}`);
+      
+      if (!response.ok) {
+        throw new Error(`Export API failed: ${response.status}`);
+      }
+
+      const result = await response.json();
+      
+      if (!result.success) {
+        throw new Error(result.message || 'Export failed');
+      }
+
+      return result.data;
+    } catch (error) {
+      console.error('Failed to fetch export data:', error);
+      // Fallback to current page data
+      return employees;
+    }
+  };
 
   const handleExport = async (format: 'csv' | 'excel') => {
     if (disabled || employees.length === 0) return;
@@ -24,10 +62,11 @@ export function ExportButton({ employees, disabled = false, className = '' }: Ex
     setShowDropdown(false);
 
     try {
-      // Add a small delay to show loading state
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // Fetch all filtered data from API
+      const allFilteredData = await fetchAllFilteredData();
       
-      exportEmployees(employees, {
+      // Export the complete filtered dataset
+      exportEmployees(allFilteredData, {
         format,
         includeHeaders: true
       });
@@ -40,6 +79,14 @@ export function ExportButton({ employees, disabled = false, className = '' }: Ex
   };
 
   const isDisabled = disabled || employees.length === 0 || isExporting;
+
+  // Check if there are active filters
+  const hasActiveFilters = Boolean(
+    searchParams.query || 
+    searchParams.department || 
+    searchParams.status || 
+    searchParams.location
+  );
 
   return (
     <div className={`relative inline-block ${className}`}>
@@ -81,12 +128,18 @@ export function ExportButton({ employees, disabled = false, className = '' }: Ex
             <div className="p-4 border-b border-gray-100">
               <h3 className="text-sm font-medium text-gray-900 mb-2">Export Data</h3>
               <div className="text-xs text-gray-600 space-y-1">
-                <p>Records: <span className="font-medium">{exportSummary.totalRecords}</span></p>
+                <p>Current Page: <span className="font-medium">{exportSummary.totalRecords} records</span></p>
                 <p>Departments: <span className="font-medium">{exportSummary.departments.length}</span></p>
                 {exportSummary.dateRange && (
                   <p>Date Range: <span className="font-medium">
                     {exportSummary.dateRange.earliest} to {exportSummary.dateRange.latest}
                   </span></p>
+                )}
+                {hasActiveFilters && (
+                  <div className="mt-2 p-2 bg-blue-50 rounded text-blue-700">
+                    <p className="font-medium">📊 Filtered Export</p>
+                    <p>Will export ALL filtered results, not just current page</p>
+                  </div>
                 )}
               </div>
             </div>
@@ -116,7 +169,7 @@ export function ExportButton({ employees, disabled = false, className = '' }: Ex
             </div>
             
             <div className="p-3 bg-gray-50 border-t border-gray-100 text-xs text-gray-600">
-              <p>💡 Files include all filtered data with timestamps</p>
+              <p>💡 {hasActiveFilters ? 'Exports all filtered data' : 'Exports complete dataset'} with timestamps</p>
             </div>
           </div>
         </>
