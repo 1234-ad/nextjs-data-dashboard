@@ -93,6 +93,7 @@ export function EmployeeDashboard() {
             <div className="mt-4 sm:mt-0">
               <ExportButton 
                 employees={employees} 
+                searchParams={searchParams}
                 disabled={loading || employees.length === 0}
                 className="w-full sm:w-auto"
               />
@@ -146,6 +147,7 @@ export function EmployeeDashboard() {
               <div className="mt-2 sm:mt-0">
                 <ExportButton 
                   employees={employees} 
+                  searchParams={searchParams}
                   disabled={loading}
                   className="text-xs"
                 />
